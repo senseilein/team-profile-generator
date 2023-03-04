@@ -17,9 +17,9 @@ class Manager extends Employee {
 
 module.exports = Manager;
 
-const emp = new Employee("hey", 3, "eme@dge.com");
-console.log(emp);
-const man = new Manager("Man", 3, "man@dge.com");
-console.log(man);
-console.log(man.getRole());
-console.log(man.officeNumber);
+// const emp = new Employee("hey", 3, "eme@dge.com");
+// console.log(emp);
+// const man = new Manager("Man", 3, "man@dge.com");
+// console.log(man);
+// console.log(man.getRole());
+// console.log(man.officeNumber);
