@@ -78,7 +78,7 @@ function showMenu() {
     });
 }
 
-/*------------------------- CREATE EMPLOYEES (namager, engineer or intern) -------------------- */
+/*------------------------- CREATE EMPLOYEES (manager, engineer or intern) -------------------- */
 
 function createNewManager(info) {
   const manager = new Manager(
@@ -100,6 +100,18 @@ function createNewEngineer(info) {
 
   return engineer;
 }
+
+function createNewIntern(info) {
+  const intern = new Intern(
+    info.internName,
+    info.internID,
+    info.internEmailAddress,
+    info.internSchool
+  );
+  return intern;
+}
+
+/*------------------------- GET EMPLOYEES'DETAILS (manager, engineer or intern) -------------------- */
 
 function getManagerInfo() {
   inquirer
@@ -136,6 +148,11 @@ function getManagerInfo() {
       showMenu();
     });
 }
+
+// function getEngineerInfo(){
+
+// }
+/*------------------------- FUNCTION TO WRITE TO FILE -------------------- */
 
 const writeToHtmlFile = (fileName, data) => {
   fs.writeFile(fileName, data, (error) => {
