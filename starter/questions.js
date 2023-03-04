@@ -1,5 +1,7 @@
 const inquirer = require("inquirer");
 const Manager = require("./lib/Manager.js");
+const render = require("./src/page-template.js");
+const fs = require("fs");
 
 /*------------------------- INPUT VALIDATION -------------------- */
 const isValidName = (name) => {
@@ -41,6 +43,30 @@ const isValidGithubUserName = (userName) => {
 /*------------------------- BUILD TEAM -------------------- */
 
 const devTeam = [];
+/*------------------------- SHOW MENU -------------------- */
+
+function showMenu() {
+  inquirer
+    .prompt([
+      {
+        type: "list",
+        message: "Menu\n Please select one of the options ",
+        name: "menu",
+        choices: [
+          "Add an engineer",
+          "Add an intern",
+          "Finish building the team",
+        ],
+      },
+    ])
+    .then((response) => {
+      console.log(response);
+      if (response.menu === "Finish building the team") {
+        console.log("We finish here");
+        writeToHtmlFile("team.html", render(devTeam));
+      }
+    });
+}
 
 /*------------------------- MANAGER -------------------- */
 
@@ -86,8 +112,15 @@ function getManagerInfo() {
       // console.log(response);
       const manager = createNewManager(info);
       devTeam.push(manager);
+      showMenu();
     });
 }
+
+const writeToHtmlFile = (fileName, data) => {
+  fs.writeFile(fileName, data, (error) => {
+    error ? console.error(error) : console.info(`Success`);
+  });
+};
 
 // const questions = [
 //   //
@@ -133,12 +166,7 @@ function getManagerInfo() {
 //       return answers.menu === "Add an engineer";
 //     },
 //   },
-//   {
-//     type: "list",
-//     message: "Do you want to: ",
-//     name: "menu",
-//     choices: ["Add an engineer", "Add an intern", "Finish building the team"],
-//   },
+//
 // ];
 
-module.exports = { getManagerInfo };
+module.exports = { getManagerInfo, showMenu };
