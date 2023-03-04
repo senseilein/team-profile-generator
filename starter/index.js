@@ -10,6 +10,7 @@ const OUTPUT_DIR = path.resolve(__dirname, "output");
 const outputPath = path.join(OUTPUT_DIR, "team.html");
 
 const render = require("./src/page-template.js");
+const { getCipherInfo } = require("crypto");
 
 // TODO: Write Code to gather information about the development team members, and render the HTML file.
 
@@ -71,9 +72,21 @@ function showMenu() {
     ])
     .then((response) => {
       console.log(response);
-      if (response.menu === "Finish building the team") {
-        console.log("We finish here");
-        writeToHtmlFile("team.html", render(devTeam));
+      // if (response.menu === "Finish building the team") {
+      //   writeToHtmlFile("team.html", render(devTeam));
+      // }
+
+      switch (response.menu) {
+        case "Add an engineer":
+          getEngineerInfo();
+          break;
+        case "Add an intern":
+          getInternInfo();
+          break;
+        default:
+          console.log("We finish here");
+          writeToHtmlFile("team.html", render(devTeam));
+          break;
       }
     });
 }
@@ -155,7 +168,7 @@ function getEngineerInfo() {
       {
         type: "input",
         message: "Engineer's name:",
-        name: "managerName",
+        name: "EngineerName",
         validate: isValidName,
       },
       {
@@ -184,6 +197,7 @@ function getEngineerInfo() {
       showMenu();
     });
 }
+
 /*------------------------- FUNCTION TO WRITE TO FILE -------------------- */
 
 const writeToHtmlFile = (fileName, data) => {
