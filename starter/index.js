@@ -51,6 +51,18 @@ const isValidGithubUserName = (userName) => {
   return validUserName ? true : "Invalid user name!";
 };
 
+/*------------------------- INPUT FORMAT -------------------- */
+
+// reused function that I created in my other repo https://github.com/senseilein/readme-file-generator/blob/main/utils/generateMarkdown.js
+// const capitalize = (str) => {
+//   let arrayOfwords = str.split(" ");
+//   let capitalizedStr = arrayOfwords.map((word) => {
+//     const firstLetter = word[0].toUpperCase();
+//     const restOfWord = word.substring(1).toLowerCase();
+//     return firstLetter + restOfWord;
+//   });
+//   return capitalizedStr.join(" ");
+// };
 /*------------------------- BUILD TEAM -------------------- */
 
 const devTeam = [];
@@ -61,7 +73,7 @@ function showMenu() {
     .prompt([
       {
         type: "list",
-        message: "Menu\n Please select one of the options ",
+        message: "Menu:\n Please select one of the following options ",
         name: "menu",
         choices: [
           "Add an engineer",
@@ -168,7 +180,7 @@ function getEngineerInfo() {
       {
         type: "input",
         message: "Engineer's name:",
-        name: "EngineerName",
+        name: "engineerName",
         validate: isValidName,
       },
       {
@@ -186,7 +198,7 @@ function getEngineerInfo() {
       {
         type: "input",
         message: "Engineer's Github username:",
-        name: "engineerGithubUsername",
+        name: "engineerGithubUserName",
         validate: isValidGithubUserName,
       },
     ])
@@ -198,6 +210,40 @@ function getEngineerInfo() {
     });
 }
 
+function getInternInfo() {
+  inquirer
+    .prompt([
+      {
+        type: "input",
+        message: "Intern's name:",
+        name: "internName",
+        validate: isValidName,
+      },
+      {
+        type: "input",
+        message: "Intern's ID:",
+        name: "internID",
+        validate: isValidNum,
+      },
+      {
+        type: "input",
+        message: "Intern's email address:",
+        name: "internEmailAddress",
+        validate: isValidEmail,
+      },
+      {
+        type: "input",
+        message: "Intern's school:",
+        name: "internSchool",
+      },
+    ])
+    .then((info) => {
+      // console.log(response);
+      const intern = createNewIntern(info);
+      devTeam.push(intern);
+      showMenu();
+    });
+}
 /*------------------------- FUNCTION TO WRITE TO FILE -------------------- */
 
 const writeToHtmlFile = (fileName, data) => {
