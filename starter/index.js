@@ -149,9 +149,41 @@ function getManagerInfo() {
     });
 }
 
-// function getEngineerInfo(){
-
-// }
+function getEngineerInfo() {
+  inquirer
+    .prompt([
+      {
+        type: "input",
+        message: "Engineer's name:",
+        name: "managerName",
+        validate: isValidName,
+      },
+      {
+        type: "input",
+        message: "Engineer's ID:",
+        name: "engineerID",
+        validate: isValidNum,
+      },
+      {
+        type: "input",
+        message: "Engineer's email address:",
+        name: "engineerEmailAddress",
+        validate: isValidEmail,
+      },
+      {
+        type: "input",
+        message: "Engineer's Github username:",
+        name: "engineerGithubUsername",
+        validate: isValidGithubUserName,
+      },
+    ])
+    .then((info) => {
+      // console.log(response);
+      const engineer = createNewEngineer(info);
+      devTeam.push(engineer);
+      showMenu();
+    });
+}
 /*------------------------- FUNCTION TO WRITE TO FILE -------------------- */
 
 const writeToHtmlFile = (fileName, data) => {
@@ -168,40 +200,7 @@ const writeToHtmlFile = (fileName, data) => {
 //     name: "menu",
 //     choices: ["Add an engineer", "Add an intern", "Finish building the team"],
 //   },
-//   {
-//     type: "input",
-//     message: "Engineer's name:",
-//     name: "managerName",
-//     validate: isValidName,
-//     when(answers) {
-//       return answers.menu === "Add an engineer";
-//     },
-//   },
-//   {
-//     type: "input",
-//     message: "Engineer's ID:",
-//     name: "engineerID",
-//     validate: isValidNum,
-//     when(answers) {
-//       return answers.menu === "Add an engineer";
-//     },
-//   },
-//   {
-//     type: "input",
-//     message: "Engineer's email address:",
-//     name: "engineerEmailAddress",
-//     validate: isValidEmail,
-//     when(answers) {
-//       return answers.menu === "Add an engineer";
-//     },
-//   },
-//   {
-//     type: "input",
-//     message: "Engineer's Github username:",
-//     name: "engineerGithubUsername",
-//     validate: isValidGithubUserName,
 //
-//   },
 //
 // ];
 
