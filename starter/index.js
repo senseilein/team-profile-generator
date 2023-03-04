@@ -1,11 +1,11 @@
+const inquirer = require("inquirer");
+const fs = require("fs");
+
 const Manager = require("./lib/Manager.js");
 const Engineer = require("./lib/Engineer.js");
 const Intern = require("./lib/Intern.js");
+
 const path = require("path");
-const fs = require("fs");
-
-const inquirer = require("inquirer");
-
 const OUTPUT_DIR = path.resolve(__dirname, "output");
 const outputPath = path.join(OUTPUT_DIR, "team.html");
 
@@ -78,7 +78,7 @@ function showMenu() {
     });
 }
 
-/*------------------------- MANAGER -------------------- */
+/*------------------------- CREATE EMPLOYEES (namager, engineer or intern) -------------------- */
 
 function createNewManager(info) {
   const manager = new Manager(
@@ -88,6 +88,17 @@ function createNewManager(info) {
     info.managerOfficeNumber
   );
   return manager;
+}
+
+function createNewEngineer(info) {
+  const engineer = new Engineer(
+    info.engineerName,
+    info.engineerID,
+    info.engineerEmailAddress,
+    info.engineerGithubUserName
+  );
+
+  return engineer;
 }
 
 function getManagerInfo() {
@@ -172,9 +183,7 @@ const writeToHtmlFile = (fileName, data) => {
 //     message: "Engineer's Github username:",
 //     name: "engineerGithubUsername",
 //     validate: isValidGithubUserName,
-//     when(answers) {
-//       return answers.menu === "Add an engineer";
-//     },
+//
 //   },
 //
 // ];
