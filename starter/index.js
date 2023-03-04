@@ -54,15 +54,15 @@ const isValidGithubUserName = (userName) => {
 /*------------------------- INPUT FORMAT -------------------- */
 
 // reused function that I created in my other repo https://github.com/senseilein/readme-file-generator/blob/main/utils/generateMarkdown.js
-// const capitalize = (str) => {
-//   let arrayOfwords = str.split(" ");
-//   let capitalizedStr = arrayOfwords.map((word) => {
-//     const firstLetter = word[0].toUpperCase();
-//     const restOfWord = word.substring(1).toLowerCase();
-//     return firstLetter + restOfWord;
-//   });
-//   return capitalizedStr.join(" ");
-// };
+const capitalize = (str) => {
+  let arrayOfwords = str.split(" ");
+  let capitalizedStr = arrayOfwords.map((word) => {
+    const firstLetter = word[0].toUpperCase();
+    const restOfWord = word.substring(1).toLowerCase();
+    return firstLetter + restOfWord;
+  });
+  return capitalizedStr.join(" ");
+};
 /*------------------------- BUILD TEAM -------------------- */
 
 const devTeam = [];
@@ -107,7 +107,7 @@ function showMenu() {
 
 function createNewManager(info) {
   const manager = new Manager(
-    info.managerName,
+    capitalize(info.managerName),
     info.managerID,
     info.managerEmailAddress,
     info.managerOfficeNumber
@@ -117,7 +117,7 @@ function createNewManager(info) {
 
 function createNewEngineer(info) {
   const engineer = new Engineer(
-    info.engineerName,
+    capitalize(info.engineerName),
     info.engineerID,
     info.engineerEmailAddress,
     info.engineerGithubUserName
@@ -128,7 +128,7 @@ function createNewEngineer(info) {
 
 function createNewIntern(info) {
   const intern = new Intern(
-    info.internName,
+    capitalize(info.internName),
     info.internID,
     info.internEmailAddress,
     info.internSchool
