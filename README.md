@@ -77,6 +77,8 @@ The following image shows the generated webpage:
 
 - Bootstrap
 
+- Jest 
+
 Apart for some styling adjustments that I've made (cards margins, background and text-color), the HTML content along with the tests files was provided in the starter code.
 
 My task was to write all the JavaScript content necessary to pass the tests and achieve the final goal: generate a webpage based on the user input.
@@ -87,6 +89,7 @@ To use the app, you will need to:
 
 - install `Node.js`
 - run `npm install --save inquirer@^8.0.0` (the app requires version 8 or below)
+- run `npm install --save-dev jest`
 - then run `node index.js` or `npm start`
 
 ## ✅ TESTS
