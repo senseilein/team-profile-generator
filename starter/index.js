@@ -70,7 +70,11 @@ function updateDevTeam(employee) {
   devTeam.push(employee);
 }
 
-/*------------------------- SHOW MENU -------------------- */
+/*------------------------- INIT & SHOW MENU -------------------- */
+
+function init() {
+  getManagerInfo();
+}
 
 function showMenu() {
   inquirer
@@ -257,4 +261,4 @@ const writeToHtmlFile = (dirPath, filePath, data) => {
   });
 };
 
-getManagerInfo();
+init();
