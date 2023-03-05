@@ -11,7 +11,7 @@ const outputPath = path.join(OUTPUT_DIR, "team.html");
 
 const render = require("./src/page-template.js");
 
-// TODO: Write Code to gather information about the development team members, and render the HTML file.
+// Code to gather information about the development team members, and render the HTML file.
 
 /*------------------------- INPUT VALIDATION -------------------- */
 const isValidName = (name) => {
@@ -81,7 +81,7 @@ function showMenu() {
     .prompt([
       {
         type: "list",
-        message: "Menu:\n Please select one of the following options ",
+        message: "Menu:\n  Please select one of the following options ",
         name: "menu",
         choices: [
           "Add an engineer",
@@ -99,7 +99,6 @@ function showMenu() {
           getInternInfo();
           break;
         default:
-          console.log("We finish here");
           writeToHtmlFile(OUTPUT_DIR, outputPath, render(devTeam));
           break;
       }
@@ -246,19 +245,23 @@ function getInternInfo() {
 }
 /*------------------------- FUNCTION TO WRITE TO FILE -------------------- */
 
+//coderrocketfuel.com/article/check-if-a-directory-exists-in-node-js
 //https://www.geeksforgeeks.org/node-js-fs-mkdir-method/
 //https://stackoverflow.com/questions/35048686/whats-the-difference-between-path-resolve-and-path-join
-const writeToHtmlFile = (dirPath, filePath, data) => {
-  fs.mkdir(dirPath, (error) => {
-    if (error) {
-      console.info("Sorry, an error occurred. Please try again later.");
-    }
-  });
+function writeToHtmlFile(dirPath, filePath, data) {
+  if (!fs.existsSync(dirPath)) {
+    fs.mkdir(dirPath, (error) => {
+      if (error) {
+        console.info("Sorry, an error occurred. Please try again later.");
+      }
+    });
+  }
+
   fs.writeFile(filePath, data, (error) => {
     error
       ? console.info("Sorry, an error occurred. Please try again later.")
       : console.info(`The requested page has been successfully generated!`);
   });
-};
+}
 
 init();
