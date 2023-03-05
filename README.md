@@ -116,7 +116,7 @@ To run the tests, run `npm test` in your terminal.
 
 **Thank you**
 
-- This project was made as part of a coding assignment with [Trilogy Education Services](https://skillsforlife.edx.org/)
+- This project was made as part of a coding assignment with Trilogy Education Services
 
 ## ✨ CONTRIBUTING
 
