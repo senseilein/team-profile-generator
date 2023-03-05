@@ -8,6 +8,7 @@
 ![](https://img.shields.io/badge/Inquirer.js-black?style=flat&logo=npm&logoWidth=23)
 ![](https://img.shields.io/badge/Html5-black?style=flat&logo=html5&logoWidth=23)
 ![](https://img.shields.io/badge/Bootstrap-black?style=flat&logo=bootstrap&logoWidth=23)
+![](https://img.shields.io/badge/Jest-black?style=flat&logo=jest&logoWidth=23)
 
 ## 🚩 TABLE OF CONTENT
 
