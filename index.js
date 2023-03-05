@@ -1,15 +1,15 @@
 const inquirer = require("inquirer");
 const fs = require("fs");
 
-const Manager = require("./lib/Manager.js");
-const Engineer = require("./lib/Engineer.js");
-const Intern = require("./lib/Intern.js");
+const Manager = require("./starter/lib/Manager.js");
+const Engineer = require("./starter/lib/Engineer.js");
+const Intern = require("./starter/lib/Intern.js");
 
 const path = require("path");
 const OUTPUT_DIR = path.resolve(__dirname, "output");
 const outputPath = path.join(OUTPUT_DIR, "team.html");
 
-const render = require("./src/page-template.js");
+const render = require("./starter/src/page-template.js");
 
 // Code to gather information about the development team members, and render the HTML file.
 
