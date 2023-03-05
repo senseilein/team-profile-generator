@@ -65,6 +65,11 @@ const capitalize = (str) => {
 /*------------------------- BUILD TEAM -------------------- */
 
 const devTeam = [];
+
+function updateDevTeam(employee) {
+  devTeam.push(employee);
+}
+
 /*------------------------- SHOW MENU -------------------- */
 
 function showMenu() {
@@ -82,11 +87,6 @@ function showMenu() {
       },
     ])
     .then((response) => {
-      console.log(response);
-      // if (response.menu === "Finish building the team") {
-      //   writeToHtmlFile("team.html", render(devTeam));
-      // }
-
       switch (response.menu) {
         case "Add an engineer":
           getEngineerInfo();
@@ -167,7 +167,7 @@ function getManagerInfo() {
     ])
     .then((info) => {
       const manager = createNewManager(info);
-      devTeam.push(manager);
+      updateDevTeam(manager);
       showMenu();
     });
 }
@@ -202,7 +202,7 @@ function getEngineerInfo() {
     ])
     .then((info) => {
       const engineer = createNewEngineer(info);
-      devTeam.push(engineer);
+      updateDevTeam(engineer);
       showMenu();
     });
 }
@@ -236,7 +236,7 @@ function getInternInfo() {
     ])
     .then((info) => {
       const intern = createNewIntern(info);
-      devTeam.push(intern);
+      updateDevTeam(intern);
       showMenu();
     });
 }
