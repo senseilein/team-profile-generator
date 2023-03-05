@@ -2,7 +2,7 @@
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
-![](https://img.shields.io/badge/Javascript-black?style=flat&logo=javascript&logoWidth=23)
+![](https://img.shields.io/badge/JavaScript-black?style=flat&logo=javascript&logoWidth=23)
 ![](https://img.shields.io/badge/Node.js-black?style=flat&logo=nodedotjs&logoWidth=23)
 ![](https://img.shields.io/badge/Npm-black?style=flat&logo=npm&logoWidth=23)
 ![](https://img.shields.io/badge/Inquirer.js-black?style=flat&logo=npm&logoWidth=23)
