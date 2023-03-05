@@ -13,7 +13,7 @@
   },
   "keywords": ["inquirer", "team profile generator", "testing", "class"],
   "author": "Senseilein",
-  "license": "ISC",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/senseilein/team-profile-generator/issues"
   },

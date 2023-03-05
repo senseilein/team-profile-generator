@@ -1,13 +1,13 @@
 const inquirer = require("inquirer");
 const fs = require("fs");
 
-const Manager = require("./starter/lib/Manager.js");
-const Engineer = require("./starter/lib/Engineer.js");
-const Intern = require("./starter/lib/Intern.js");
-
 const path = require("path");
 const OUTPUT_DIR = path.resolve(__dirname, "output");
 const outputPath = path.join(OUTPUT_DIR, "team.html");
+
+const Manager = require("./starter/lib/Manager.js");
+const Engineer = require("./starter/lib/Engineer.js");
+const Intern = require("./starter/lib/Intern.js");
 
 const render = require("./starter/src/page-template.js");
 
@@ -62,7 +62,7 @@ const capitalize = (str) => {
   });
   return capitalizedStr.join(" ");
 };
-/*------------------------- BUILD TEAM -------------------- */
+/*------------------------- BUILD DEV TEAM -------------------- */
 
 const devTeam = [];
 
@@ -77,25 +77,27 @@ function init() {
 }
 
 function showMenu() {
+  let menuOptions = [
+    "Add an engineer",
+    "Add an intern",
+    "Finish building the team",
+  ];
+
   inquirer
     .prompt([
       {
         type: "list",
         message: "Menu:\n  Please select one of the following options ",
         name: "menu",
-        choices: [
-          "Add an engineer",
-          "Add an intern",
-          "Finish building the team",
-        ],
+        choices: menuOptions,
       },
     ])
     .then((response) => {
       switch (response.menu) {
-        case "Add an engineer":
+        case menuOptions[0]:
           getEngineerInfo();
           break;
-        case "Add an intern":
+        case menuOptions[1]:
           getInternInfo();
           break;
         default:
