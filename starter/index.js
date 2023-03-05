@@ -10,7 +10,6 @@ const OUTPUT_DIR = path.resolve(__dirname, "output");
 const outputPath = path.join(OUTPUT_DIR, "team.html");
 
 const render = require("./src/page-template.js");
-const { getCipherInfo } = require("crypto");
 
 // TODO: Write Code to gather information about the development team members, and render the HTML file.
 
@@ -97,7 +96,7 @@ function showMenu() {
           break;
         default:
           console.log("We finish here");
-          writeToHtmlFile("team.html", render(devTeam));
+          writeToHtmlFile(OUTPUT_DIR, outputPath, render(devTeam));
           break;
       }
     });
@@ -167,7 +166,6 @@ function getManagerInfo() {
       },
     ])
     .then((info) => {
-      // console.log(response);
       const manager = createNewManager(info);
       devTeam.push(manager);
       showMenu();
@@ -203,7 +201,6 @@ function getEngineerInfo() {
       },
     ])
     .then((info) => {
-      // console.log(response);
       const engineer = createNewEngineer(info);
       devTeam.push(engineer);
       showMenu();
@@ -238,7 +235,6 @@ function getInternInfo() {
       },
     ])
     .then((info) => {
-      // console.log(response);
       const intern = createNewIntern(info);
       devTeam.push(intern);
       showMenu();
@@ -246,24 +242,19 @@ function getInternInfo() {
 }
 /*------------------------- FUNCTION TO WRITE TO FILE -------------------- */
 
-const writeToHtmlFile = (fileName, data) => {
-  fs.writeFile(fileName, data, (error) => {
-    error ? console.error(error) : console.info(`Success`);
+//https://www.geeksforgeeks.org/node-js-fs-mkdir-method/
+//https://stackoverflow.com/questions/35048686/whats-the-difference-between-path-resolve-and-path-join
+const writeToHtmlFile = (dirPath, filePath, data) => {
+  fs.mkdir(dirPath, (error) => {
+    if (error) {
+      console.info("Sorry, an error occurred. Please try again later.");
+    }
+  });
+  fs.writeFile(filePath, data, (error) => {
+    error
+      ? console.info("Sorry, an error occurred. Please try again later.")
+      : console.info(`The requested page has been successfully generated!`);
   });
 };
 
-// const questions = [
-//   //
-//   {
-//     type: "list",
-//     message: "Do you want to: ",
-//     name: "menu",
-//     choices: ["Add an engineer", "Add an intern", "Finish building the team"],
-//   },
-//
-//
-// ];
-
 getManagerInfo();
-
-// render([new Manager("Man", 3, "man@dge.com", 1)]);
