@@ -104,7 +104,7 @@ To run the tests, run `npm test` in your terminal.
 
 **Input validation**
 
-- [Regex101](https://regex101.com/)
+- [Regex101](https://regex101.com/) 
 - [Email validation Regex](https://www.w3schools.blog/email-validation-javascript-js)
 - [Github username validation](https://docs.github.com/en/github-ae@latest/admin/identity-and-access-management/managing-iam-for-your-enterprise/username-considerations-for-external-authentication)
 
