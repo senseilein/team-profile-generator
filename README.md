@@ -7,7 +7,6 @@
 ![](https://img.shields.io/badge/Npm-black?style=flat&logo=npm&logoWidth=23)
 ![](https://img.shields.io/badge/Inquirer.js-black?style=flat&logo=npm&logoWidth=23)
 ![](https://img.shields.io/badge/Html5-black?style=flat&logo=html5&logoWidth=23)
-![](https://img.shields.io/badge/CSS3-black?style=flat&logo=css3&logoWidth=23)
 ![](https://img.shields.io/badge/Bootstrap-black?style=flat&logo=bootstrap&logoWidth=23)
 ![](https://img.shields.io/badge/Jest-black?style=flat&logo=jest&logoWidth=23)
 
